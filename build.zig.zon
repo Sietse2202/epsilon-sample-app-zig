@@ -1,0 +1,17 @@
+.{
+    .name = .epsilon_sample_app_zig,
+    .version = "0.0.0",
+    .fingerprint = 0xffd202e7a4812899,
+    .minimum_zig_version = "0.14.1",
+    .dependencies = .{
+        .zigworks = .{
+            .url = "https://github.com/Sietse2202/zigworks/archive/refs/tags/v1.0.0-rc.1.tar.gz",
+            .hash = "eadk-1.0.0-rc.1-L1GOILVLAABPj1qSFn4G3ZIKWdo5Diq87rOBexKhj59D",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
