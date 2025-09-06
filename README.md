@@ -32,7 +32,9 @@ pub export fn main() void {
 
 ## Build the app
 
-To build this sample app, you will need to install an embedded ARM rust compiler as well as [Node.js](https://nodejs.org/en/). The SDK for Epsilon apps is shipped as an npm module called [nwlink](https://www.npmjs.com/package/nwlink) that will automatically be installed at compile time.
+To build this sample app, you will need to install an embedded ARM zig compiler as well as
+[Node.js](https://nodejs.org/en/). The SDK for Epsilon apps is shipped as an npm module called
+[nwlink](https://www.npmjs.com/package/nwlink) that will automatically be installed at compile time.
 
 ```shell
 brew install rustup node # Or equivalent on your OS
