@@ -3,7 +3,7 @@
 # Sample Zig app for Epsilon
 
 This is a sample [Zig](https://ziglang.org/) app to use on a [NumWorks calculator](https://www.numworks.com).
-Yes, you can now use Rust to write code for a graphing calculator!
+Yes, you can now use Zig to write code for a graphing calculator!
 
 ```zig
 pub export fn main() void {
@@ -37,7 +37,7 @@ To build this sample app, you will need to install an embedded ARM zig compiler 
 [nwlink](https://www.npmjs.com/package/nwlink) that will automatically be installed at compile time.
 
 ```shell
-brew install rustup node # Or equivalent on your OS
+brew install zigup node # Or equivalent on your OS
 zigup fetch "0.14.1"
 zig build
 ```
@@ -68,4 +68,4 @@ This sample app is distributed under the terms of the UNLICENSE. See [LICENSE](L
 
 ## Trademarks
 
-NumWorks and Rust are a registered trademarks.
+NumWorks and Zig are a registered trademarks.
