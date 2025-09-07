@@ -23,7 +23,7 @@ pub fn build(b: *std.Build) void {
         .name = name,
         .root_source_file = b.path("src/main.zig"),
         .target = target,
-        .optimize = .ReleaseFast,
+        .optimize = .ReleaseSmall,
         .link_libc = false,
     });
 
