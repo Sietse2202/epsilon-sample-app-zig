@@ -20,7 +20,8 @@ pub export fn main() void {
     Point.CENTER.drawString("Hello from Zig!", .{
         .fg = Color.BLACK,
         .bg = Color.WHITE,
-        .centered = true
+        .centered = true,
+        .large = true,
     });
 
     while (true) {
