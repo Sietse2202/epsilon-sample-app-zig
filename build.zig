@@ -14,17 +14,16 @@ pub fn build(b: *std.Build) void {
         }),
     });
 
-    const icon_convert_cmd = b.addSystemCommand(&.{
-        "nwlink", "png-nwi", "src/icon.png", "src/icon.nwi"
-    });
+    const icon_convert_cmd = b.addSystemCommand(&.{ "bunx", "nwlink", "png-nwi", "src/icon.png", "src/icon.nwi" });
     icon_convert_cmd.addFileInput(b.path("src/icon.png"));
 
     const obj = b.addObject(.{
         .name = name,
-        .root_source_file = b.path("src/main.zig"),
-        .target = target,
-        .optimize = .ReleaseSmall,
-        .link_libc = false,
+        .root_module = b.createModule(.{
+            .root_source_file = b.path("src/main.zig"),
+            .target = target,
+            .optimize = .ReleaseSmall,
+        }),
     });
 
     obj.linker_allow_shlib_undefined = true;
@@ -46,7 +45,7 @@ pub fn build(b: *std.Build) void {
     // ---
 
     const nwlink_cmd = b.addSystemCommand(&.{
-        "npx", "--yes", "--", "nwlink@0.0.19", "install-nwa",
+        "bunx", "--yes", "--", "nwlink@0.0.19", "install-nwa",
     });
     nwlink_cmd.addArtifactArg(obj);
 
@@ -55,12 +54,8 @@ pub fn build(b: *std.Build) void {
 
     // ---
 
-    const create_folders = b.addSystemCommand(&.{
-        "mkdir", "-p", "./zig-out/bin/"
-    });
-    const make_nwa_file = b.addSystemCommand(&.{
-        "cp"
-    });
+    const create_folders = b.addSystemCommand(&.{ "mkdir", "-p", "./zig-out/bin/" });
+    const make_nwa_file = b.addSystemCommand(&.{"cp"});
     make_nwa_file.addArtifactArg(obj);
     make_nwa_file.addArg("./zig-out/bin/" ++ name ++ ".nwa");
 
