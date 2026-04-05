@@ -28,7 +28,7 @@ To build this sample app, you will need to install an embedded ARM zig compiler 
 ```shell
 brew install zigup node # Or equivalent on your OS
 zigup fetch "0.15.2"
-zig build
+zig build nwa
 ```
 
 ## Run the app
