@@ -7,38 +7,27 @@ Yes, you can now use Zig to write code for a graphing calculator!
 
 ```zig
 pub export fn main() void {
-    Rect.FULL_SCREEN.pushColor(Color.WHITE);
+    display.clearScreen(.white);
 
-    Point.CENTER.drawString("Hello from Zig!", .{
-        .fg = Color.BLACK,
-        .bg = Color.WHITE,
-        .centered = true
-    });
-
-    while (true) {
-        var scan = eadk.keyboard.scan();
-        if (scan.isKeyDown(eadk.keyboard.Key.home)) {
-            scan = eadk.keyboard.scan();
-            while (scan.isKeyDown(eadk.keyboard.Key.home)) {
-                scan = eadk.keyboard.scan();
-            }
-
-            eadk.timing.sleepMillis(80);
-            return;
-        }
+    for (0..100) |_| {
+        const color: Color = @bitCast(random.randomInt(u16));
+        const rect: Rect = .{ .x = randomX(), .y = randomY(), .width = randomX(), .height = randomY() };
+        rect.pushColor(color);
     }
+
+    while (true) {}
 }
 ```
 
 ## Build the app
 
 To build this sample app, you will need to install an embedded ARM zig compiler as well as
-[Node.js](https://nodejs.org/en/). The SDK for Epsilon apps is shipped as an npm module called
+[bun](https://bun.sh/). The SDK for Epsilon apps is shipped as an npm module called
 [nwlink](https://www.npmjs.com/package/nwlink) that will automatically be installed at compile time.
 
 ```shell
 brew install zigup node # Or equivalent on your OS
-zigup fetch "0.14.1"
+zigup fetch "0.15.2"
 zig build
 ```
 
@@ -68,4 +57,4 @@ This sample app is distributed under the terms of the UNLICENSE. See [LICENSE](L
 
 ## Trademarks
 
-NumWorks and Zig are a registered trademarks.
+NumWorks is a registered trademarks.
