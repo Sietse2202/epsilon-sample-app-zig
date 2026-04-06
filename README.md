@@ -11,7 +11,16 @@ pub export fn main() void {
 
     for (0..100) |_| {
         const color: Color = @bitCast(random.randomInt(u16));
-        const rect: Rect = .{ .x = randomX(), .y = randomY(), .width = randomX(), .height = randomY() };
+
+        const x = randomX(screen_width);
+        const y = randomY(screen_height);
+
+        const rect: Rect = .{
+            .x = x,
+            .y = y,
+            .width = randomX(screen_width - x),
+            .height = randomY(screen_height - y)
+        };
         rect.pushColor(color);
     }
 

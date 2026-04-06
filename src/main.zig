@@ -1,7 +1,8 @@
 const eadk = @import("eadk");
-
 const random = eadk.random;
 const display = eadk.display;
+const screen_width = display.screen_width;
+const screen_height = display.screen_height;
 const Point = display.Point;
 const Rect = display.Rect;
 const Color = display.Color;
@@ -15,12 +16,12 @@ comptime {
     _ = .{ meta.name, meta.icon, meta.api_level };
 }
 
-pub fn randomX() u16 {
-    return random.randomInRange(u16, 0, display.screen_width);
+pub fn randomX(max: u16) u16 {
+    return random.randomInRange(u16, 0, max);
 }
 
-pub fn randomY() u16 {
-    return random.randomInRange(u16, 0, display.screen_height);
+pub fn randomY(max: u16) u16 {
+    return random.randomInRange(u16, 0, max);
 }
 
 pub export fn main() void {
@@ -28,7 +29,18 @@ pub export fn main() void {
 
     for (0..100) |_| {
         const color: Color = @bitCast(random.randomInt(u16));
-        const rect: Rect = .{ .x = randomX(), .y = randomY(), .width = randomX(), .height = randomY() };
+
+        const x = randomX(screen_width);
+        const y = randomY(screen_height);
+
+        // zig fmt: off
+        const rect: Rect = .{
+            .x = x,
+            .y = y,
+            .width = randomX(screen_width - x),
+            .height = randomY(screen_height - y)
+        };
+        // zig fmt: on
         rect.pushColor(color);
     }
 

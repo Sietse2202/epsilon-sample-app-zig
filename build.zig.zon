@@ -5,8 +5,8 @@
     .minimum_zig_version = "0.15.2",
     .dependencies = .{
         .zigworks = .{
-            .url = "https://github.com/Sietse2202/zigworks/archive/refs/tags/v2.0.0.tar.gz",
-            .hash = "eadk-2.0.0-L1GOIJOGAAAJH7nmYhC3XNCT_WBDgis2zdgt-VOG1mdP",
+            .url = "https://github.com/Sietse2202/zigworks/archive/refs/tags/v2.1.0.tar.gz",
+            .hash = "eadk-2.0.0-L1GOIDiIAACPndGC2Ch-ixzHqI4L13mOF61IPujYnUjG",
         },
     },
     .paths = .{
