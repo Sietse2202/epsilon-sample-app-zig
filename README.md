@@ -35,8 +35,8 @@ To build this sample app, you will need to install an embedded ARM zig compiler 
 [nwlink](https://www.npmjs.com/package/nwlink) that will automatically be installed at compile time.
 
 ```shell
-brew install zigup node # Or equivalent on your OS
-zigup fetch "0.15.2"
+brew install zigup bun # Or equivalent on your OS
+zigup fetch "0.16.0"
 zig build nwa
 ```
 
