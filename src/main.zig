@@ -33,14 +33,12 @@ pub export fn main() void {
         const x = randomX(screen_width);
         const y = randomY(screen_height);
 
-        // zig fmt: off
         const rect: Rect = .{
             .x = x,
             .y = y,
             .width = randomX(screen_width - x),
-            .height = randomY(screen_height - y)
+            .height = randomY(screen_height - y),
         };
-        // zig fmt: on
         rect.pushColor(color);
     }
 

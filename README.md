@@ -19,7 +19,7 @@ pub export fn main() void {
             .x = x,
             .y = y,
             .width = randomX(screen_width - x),
-            .height = randomY(screen_height - y)
+            .height = randomY(screen_height - y),
         };
         rect.pushColor(color);
     }
