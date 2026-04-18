@@ -16,11 +16,7 @@ comptime {
     _ = .{ meta.name, meta.icon, meta.api_level };
 }
 
-pub fn randomX(max: u16) u16 {
-    return random.randomInRange(u16, 0, max);
-}
-
-pub fn randomY(max: u16) u16 {
+pub fn randomBelow(max: u16) u16 {
     return random.randomInRange(u16, 0, max);
 }
 
@@ -30,14 +26,14 @@ pub export fn main() void {
     for (0..100) |_| {
         const color: Color = @bitCast(random.randomInt(u16));
 
-        const x = randomX(screen_width);
-        const y = randomY(screen_height);
+        const x = randomBelow(screen_width);
+        const y = randomBelow(screen_height);
 
         const rect: Rect = .{
             .x = x,
             .y = y,
-            .width = randomX(screen_width - x),
-            .height = randomY(screen_height - y),
+            .width = randomBelow(screen_width - x),
+            .height = randomBelow(screen_height - y),
         };
         rect.pushColor(color);
     }
