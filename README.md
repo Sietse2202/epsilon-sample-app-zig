@@ -66,4 +66,4 @@ This sample app is distributed under the terms of the UNLICENSE. See [LICENSE](L
 
 ## Trademarks
 
-NumWorks is a registered trademarks.
+NumWorks is a registered trademark.
