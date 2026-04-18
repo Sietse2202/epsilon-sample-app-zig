@@ -2,7 +2,7 @@
   description = "epsilon-sample-app-zig flake";
 
   inputs = {
-    zls.url = "github:zigtools/zls?ref=0.15.1";
+    zls.url = "github:zigtools/zls?ref=0.16.0";
     zig2nix.url = "github:Cloudef/zig2nix";
   };
 
@@ -15,7 +15,7 @@
   in (flake-utils.lib.eachDefaultSystem (system: let
     zlsPkg = zls.packages.${system}.default;
     env = zig2nix.outputs.zig-env.${system} {
-      zig = zig2nix.outputs.packages.${system}.zig-0_15_2;
+      zig = zig2nix.outputs.packages.${system}.zig-0_16_0;
     };
   in
     with builtins;
